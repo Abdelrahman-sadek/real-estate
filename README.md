@@ -1,31 +1,50 @@
 # منصة تسجيل ودليل السماسرة العقاريين
 
-A modern, lightweight, static web application (Arabic, RTL, Cairo font) for real estate broker registration and directory. Data is stored in Google Sheets via Google Apps Script. Hosted on GitHub Pages.
+# Real Estate Broker Directory Platform
+
+A modern, attractive, and mobile-friendly directory for real estate brokers in Egypt. Features live search, a responsive table with direct contact links (WhatsApp, Facebook, LinkedIn), and dynamic data loading from Google Sheets via Google Apps Script. The site uses a luxury design, Cairo font, and is fully RTL-compatible.
 
 ## Features
-- Broker registration form (Arabic, RTL, Cairo font)
-- Stores data in Google Sheets (via Apps Script Web App)
-- Admin view: directory of all brokers
-- Mobile-friendly, great UI/UX
+- Modern, luxury design (gradients, modern fonts, high-quality icons)
+- Fully mobile responsive
+- Central, fast live search bar
+- Full-width brokers table with alternating row colors and clear card-like data
+- Dedicated WhatsApp column: button opens direct chat with the broker
+- Social links in the footer (Facebook, LinkedIn, WhatsApp)
+- Full Arabic (RTL) and Cairo font support
+
+## How It Works
+1. **Frontend:**
+   - HTML, CSS, JavaScript (Vanilla)
+   - Displays brokers in a responsive table with live search
+   - "Register as Broker" button links to a Google Form
+2. **Data:**
+   - Pulled from Google Sheets via Google Apps Script Web App (GET only)
+3. **Hosting:**
+   - GitHub Pages
+
+## WhatsApp Column Logic
+- WhatsApp links are generated automatically from the phone number:
+  - All non-digit characters are removed from the number.
+  - The country code (2) is automatically added before the number (e.g., 201001234567)
+  - Clicking the green WhatsApp icon opens a direct chat with the broker via [https://wa.me/](https://wa.me/)
+- The icon used is high-quality and matches WhatsApp's official branding.
+
+## Customizing Social Links
+- The footer includes links to:
+  - **Facebook:** [https://www.facebook.com/tito.sadek](https://www.facebook.com/tito.sadek)
+  - **LinkedIn:** [https://www.linkedin.com/in/abdelrahman-sadek90/](https://www.linkedin.com/in/abdelrahman-sadek90/)
+  - **WhatsApp:** [https://wa.me/201001373851](https://wa.me/201001373851)
+- You can change these links by editing the footer section in `index.html`.
 
 ## Setup & Deployment
+1. Set the `GOOGLE_SCRIPT_URL` variable in `app.js` to your Google Apps Script Web App URL.
+2. Upload all files to your GitHub repository.
+3. Enable GitHub Pages in your repository settings.
+4. Create a new Google Sheet and add the Apps Script code (see below).
+5. Make sure the first row in your Google Sheet contains column headers.
 
-### 1. Frontend (GitHub Pages)
-- Clone or download this repository.
-- Edit `app.js` and set your Google Apps Script Web App URL in `GOOGLE_SCRIPT_URL`.
-- Push to your GitHub repository.
-- Enable GitHub Pages in repository settings (root or `/docs` folder).
-
-### 2. Google Sheets Backend
-- Create a new Google Sheet for broker data.
-- Go to **Extensions > Apps Script** and paste the provided Apps Script code (see below).
-- Deploy as Web App (new deployment):
-  - Execute as: Me
-  - Who has access: Anyone
-  - Copy the Web App URL and use it in `app.js`.
-- Make sure to enable CORS in the Apps Script code.
-
-### 3. Apps Script Example
+## Google Apps Script Code (for Google Sheets)
 ```js
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -34,7 +53,7 @@ function doPost(e) {
     data.fullName, data.phone, data.governorate, data.cities, data.areas,
     data.propertyTypes, data.services, data.bio, data.mapLink, data.photo
   ]);
-  return ContentService.createTextOutput(JSON.stringify({message: 'تم التسجيل بنجاح!'})).setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify({message: 'Registration successful!'})).setMimeType(ContentService.MimeType.JSON);
 }
 function doGet(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
