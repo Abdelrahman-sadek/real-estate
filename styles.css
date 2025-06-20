@@ -1,0 +1,295 @@
+body {
+  font-family: 'Cairo', Arial, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+  color: #222;
+  margin: 0;
+  direction: rtl;
+  min-height: 100vh;
+}
+header {
+  background: #1976d2;
+  color: #fff;
+  padding: 2rem 0 1.2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(30, 136, 229, 0.08);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 0.5rem 2.5rem 0.5rem;
+  box-sizing: border-box;
+}
+#search-bar-container {
+  margin: 2rem 0 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+#search-bar {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  border: 1.5px solid #90caf9;
+  font-size: 1.1rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.04);
+  outline: none;
+  transition: border 0.2s;
+}
+#search-bar:focus {
+  border: 2px solid #1976d2;
+}
+#directory-section h2 {
+  margin: 0 0 1.2rem 0;
+  font-size: 1.4rem;
+  color: #1976d2;
+  font-weight: 700;
+  text-align: right;
+}
+#brokers-table-container {
+  margin-top: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: auto;
+}
+#brokers-table {
+  width: 100vw;
+  min-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Cairo', Arial, sans-serif;
+  background: #fff;
+  direction: rtl;
+  box-shadow: 0 4px 24px rgba(30, 136, 229, 0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+}
+#brokers-table thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  color: #1976d2;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1rem 0.7rem;
+  border-bottom: 2px solid #90caf9;
+  z-index: 2;
+  text-align: right;
+}
+#brokers-table tbody td {
+  padding: 0.9rem 0.7rem;
+  border-bottom: 1px solid #f0f4f8;
+  font-size: 1.05rem;
+  vertical-align: middle;
+  background: #fcfcfd;
+  transition: background 0.2s;
+}
+#brokers-table tbody tr {
+  transition: box-shadow 0.2s, background 0.2s;
+}
+#brokers-table tbody tr:hover {
+  background: #e3f2fd;
+  box-shadow: 0 2px 12px rgba(30, 136, 229, 0.07);
+}
+#brokers-table td img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.10);
+  border: 2px solid #90caf9;
+  background: #fff;
+  max-width: 50px;
+  max-height: 50px;
+}
+#brokers-table a {
+  color: #1565c0;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+#brokers-table a:hover {
+  color: #0d47a1;
+}
+footer {
+  background: #1976d2;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0 1.7rem 0;
+  font-size: 1.1rem;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -2px 12px rgba(30, 136, 229, 0.08);
+  margin-top: 2rem;
+}
+@media (max-width: 1200px) {
+  main {
+    max-width: 100vw;
+    padding: 1.5rem 0.2rem 2.5rem 0.2rem;
+  }
+  #brokers-table {
+    min-width: 700px;
+  }
+}
+@media (max-width: 900px) {
+  #brokers-table thead th, #brokers-table tbody td {
+    font-size: 0.98rem;
+    padding: 0.7rem 0.4rem;
+  }
+  #search-bar {
+    max-width: 100vw;
+  }
+}
+@media (max-width: 700px) {
+  #brokers-table {
+    min-width: 500px;
+  }
+  #search-bar {
+    font-size: 1rem;
+    padding: 0.7rem 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.3rem;
+    padding: 0.7rem 0;
+  }
+  #brokers-table thead th, #brokers-table tbody td {
+    font-size: 0.93rem;
+    padding: 0.5rem 0.2rem;
+  }
+  #brokers-table {
+    min-width: 350px;
+  }
+  #search-bar {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.5rem;
+  }
+  main {
+    padding: 0.5rem 0 1.5rem 0;
+  }
+  footer {
+    font-size: 0.95rem;
+    padding: 0.7rem 0 1.2rem 0;
+  }
+}
+
+form {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafbfc;
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+}
+input[type="file"] {
+  padding: 0.2rem 0;
+  background: none;
+  border: none;
+}
+button[type="submit"] {
+  background: #1e88e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button[type="submit"]:hover {
+  background: #1565c0;
+}
+.multi-input-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.multi-input-list span {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.multi-input-list span button {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0;
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.broker-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.broker-card img {
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+#filters {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+} 

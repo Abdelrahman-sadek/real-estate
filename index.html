@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل السماسرة العقاريين</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>دليل السماسرة العقاريين</h1>
+  </header>
+  <main>
+    <section id="directory-section">
+      <div id="search-bar-container">
+        <input type="text" id="search-bar" placeholder="ابحث عن سمسار أو أي معلومة..." autocomplete="off">
+      </div>
+      <h2>قائمة السماسرة</h2>
+      <div id="filters">
+        <!-- Optional filters for admin view -->
+      </div>
+      <div id="brokers-table-container">
+        <table id="brokers-table">
+          <thead>
+            <tr>
+              <th>الاسم الكامل</th>
+              <th>رقم الهاتف</th>
+              <th>المحافظة</th>
+              <th>المدن</th>
+              <th>المناطق</th>
+              <th>أنواع العقارات</th>
+              <th>الخدمات</th>
+              <th>نبذة</th>
+              <th>رابط الموقع</th>
+              <th>صورة</th>
+            </tr>
+          </thead>
+          <tbody id="brokers-list">
+            <!-- Broker rows will be rendered here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2024</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html> 
