@@ -174,15 +174,19 @@ async function loadBrokers() {
 function renderBrokers(brokers) {
   const list = document.getElementById('brokers-list');
   if (!Array.isArray(brokers) || brokers.length === 0) {
-    list.innerHTML = '<tr><td colspan="10">لا يوجد سماسرة مسجلين بعد.</td></tr>';
+    list.innerHTML = '<tr><td colspan="11">لا يوجد سماسرة مسجلين بعد.</td></tr>';
     return;
   }
   list.innerHTML = '';
   brokers.forEach(broker => {
+    // Format WhatsApp link
+    let phone = (broker.phone || '').replace(/\D/g, '');
+    let waLink = phone ? `<a href="https://wa.me/2${phone}" target="_blank" aria-label="واتساب"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#25D366"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.173.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.58-.487-.501-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.21 5.077 4.377.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.008-1.413.248-.694.248-1.277.173-1.413-.074-.136-.272-.223-.57-.372z" fill="#fff"/></svg></a>` : '';
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${broker.fullName || ''}</td>
       <td>${broker.phone || ''}</td>
+      <td>${waLink}</td>
       <td>${broker.governorate || ''}</td>
       <td>${broker.cities || ''}</td>
       <td>${broker.areas || ''}</td>
