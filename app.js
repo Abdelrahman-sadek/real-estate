@@ -159,13 +159,21 @@ function toBase64(file) {
 // --- Load Brokers (Admin View) ---
 let allBrokers = [];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 async function loadBrokers() {
   const list = document.getElementById('brokers-list');
   list.innerHTML = '<p>جاري التحميل...</p>';
   try {
     const res = await fetch(GOOGLE_SCRIPT_URL + '?action=get', { method: 'GET' });
     allBrokers = await res.json();
-    renderBrokers(allBrokers);
+    renderBrokers(shuffleArray([...allBrokers]));
   } catch (err) {
     list.innerHTML = '<p>تعذر تحميل الدليل.</p>';
   }
@@ -216,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
           (val || '').toString().toLowerCase().includes(query)
         );
       });
-      renderBrokers(filtered);
+      renderBrokers(shuffleArray(filtered));
     });
   }
 }); 
